@@ -6,7 +6,7 @@
     <title>Job 03</title>
 
     <!-- Lien vers le fichier JavaScript -->
-    <script src="script.js"></script>
+    <script src="script03.js"></script>
 </head>
 <body>
     

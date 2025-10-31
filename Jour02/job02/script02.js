@@ -19,5 +19,6 @@ function showhide() {
   else {
     citation.style.display = "none";
     button.textContent = "Afficher la citation";
+    console.log("Caché");
   }
 }

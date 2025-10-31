@@ -6,15 +6,16 @@
     <title>Jour02 - job02</title>
 </head>
 <body>
-    <article id="citation">
+    <article id="citation" style="display:none;">
         <P>
             “L'important n'est pas la chute, mais l'atterrissage.”
         </P>
-    </article>
-    
-        <button id="button" onclick="showhide()">
-            Afficher | Masquer la citation
-        </button>
+    </article> 
+
+    <button id="button" onclick="showhide()">
+        Afficher la citation
+    </button>
+
    
 
 <script src="script02.js"></script>

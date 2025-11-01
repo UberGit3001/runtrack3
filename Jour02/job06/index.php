@@ -20,7 +20,8 @@
     <p class="lead">Par défaut, cette page est neutre. Tape le <strong>Code Konami</strong> pour déclencher le thème spécial.</p>
 
     <div>
-      <span class="hint">Séquence : ↑ ↑ ↓ ↓ ← → ← → B A</span>
+      <!-- <span class="hint">Séquence : ↑ ↑ ↓ ↓ ← → ← → B A</span> -->
+      <span class="hint">Séquence : ↑↓ ← →</span>
     </div>
 
     <div style="margin-top:1.2rem;display:flex;gap:12px;align-items:center;">

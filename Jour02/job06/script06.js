@@ -1,6 +1,7 @@
     // Détection Konami (↑ ↑ ↓ ↓ ← → ← → b a)
     (function(){
-      const konami = ["ArrowUp","ArrowUp","ArrowDown","ArrowDown","ArrowLeft","ArrowRight","ArrowLeft","ArrowRight","b","a"];
+    //   const konami = ["ArrowUp","ArrowUp","ArrowDown","ArrowDown","ArrowLeft","ArrowRight","ArrowLeft","ArrowRight","b","a"];
+      const konami = ["ArrowUp","ArrowDown","ArrowLeft","ArrowRight"];
       let position = 0;
 
       const body = document.body;

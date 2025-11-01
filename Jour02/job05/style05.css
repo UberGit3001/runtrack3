@@ -11,10 +11,40 @@
    BODY
    ======================================= */
 body {
+  background: linear-gradient(to bottom, #464545, #c2c1c1); /* Dégradé de fond */
+  color: #999999;
   min-height: 4096px; /* Taille minimale demandée */
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 20px;
+
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+h1 {
+    
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+
+  /* Contour du texte */
+  -webkit-text-stroke: 2px #ffffff;
+
+  /* Texte dégradé */
+  background: linear-gradient(90deg, #00d4ff, #ff00c8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent; /* important */
+}
+
+
+p {
+  max-width: 600px;
+  margin: 20px auto;
+  line-height: 1.6;
 }
 
 /* =======================================
@@ -25,31 +55,16 @@ footer {
   bottom: 0;         /* En bas de la fenêtre */
   left: 0;
   width: 100%;       /* Occupe toute la largeur */
-  height: 20px;      /* Hauteur fixe */
-  background-color: #ccc; /* Couleur de fond par défaut */
+  height: 200px;      /* Hauteur fixe */
+  /* background-color: #8b2626; Couleur de fond par défaut */
 }
 
 /* =======================================
    BARRE DE PROGRESSION DANS LE FOOTER
    ======================================= */
 #progress {
-  height: 100%;        /* Remplit la hauteur du footer */
+  height: 10%;        /* Remplit la hauteur du footer */
   width: 0%;           /* Largeur initiale = 0% */
   background-color: #4caf50; /* Couleur de la progression */
   transition: width 0.1s ease; /* Animation fluide lors du scroll */
-}
-/* =======================================
-   STYLES SUPPLÉMENTAIRES (OPTIONNELS)
-   ======================================= */
-body {
-  background: linear-gradient(to bottom, #f0f0f0, #c0c0c0); /* Dégradé de fond */
-}
-h1 {
-  text-align: center;
-  margin-bottom: 40px;
-}
-p {
-  max-width: 600px;
-  margin: 20px auto;
-  line-height: 1.6;
 }

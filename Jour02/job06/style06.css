@@ -1,0 +1,127 @@
+/* --- Styles de base --- */
+    :root{
+      --bg: #0f1724;
+      --card: rgba(255,255,255,0.04);
+      --text: #dfe7ff;
+      /* palette La Plateforme_ (modifiable) */
+      --pf-primary: #6C2DD5; /*violet*/
+       /* --pf-primary: #cad52dd3;Jaune */
+        --pf-accent: #00E6A8; /* mint/vert */
+      --pf-highlight:#FF5DA2; /* rose */
+    }
+
+    /* Reset simple */
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg, var(--bg) 0%, #071021 100%);
+      color:var(--text);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:2rem;
+      transition: background 300ms linear, color 300ms linear;
+    }
+
+    .card{
+      width:min(1200px, 96%);
+      max-width:1100px;
+      background:var(--card);
+      border-radius:14px;
+      padding:2rem;
+      box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+      backdrop-filter: blur(6px);
+      border:1px solid rgba(255,255,255,0.03);
+    }
+
+    h1{
+      font-size: clamp(1.6rem, 3vw, 2.6rem);
+      margin-bottom:0.6rem;
+      letter-spacing: -0.02em;
+    }
+
+    p.lead{opacity:0.85;margin-bottom:1.2rem}
+
+    .hint{
+      font-family: monospace;
+      background: rgba(255,255,255,0.03);
+      padding:0.6rem 0.8rem;
+      border-radius:8px;
+      display:inline-block;
+      color: #cfe9df;
+      margin-top:0.6rem;
+    }
+
+    .controls{display:flex;gap:12px;margin-top:1rem;flex-wrap:wrap}
+    .btn{
+      padding:0.6rem 0.9rem;border-radius:10px;border:none;
+      cursor:pointer;font-weight:600;background:linear-gradient(90deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      color:var(--text);
+      transition: transform .12s ease, box-shadow .12s ease;
+    }
+    .btn:active{transform:translateY(1px)}
+    .btn.secondary{opacity:0.9;font-weight:500}
+
+    /* --- Styles activés par Konami (la classe .konami sur <body>) --- */
+    body.konami{
+      background: linear-gradient(120deg, rgba(22,6,44,1) 0%, rgba(6,12,31,1) 40%, rgba(3,10,25,1) 100%);
+      color: #fff;
+    }
+
+    body.konami .card{
+      background: linear-gradient(180deg, rgba(16,6,35,0.72), rgba(6,8,20,0.5));
+      border: 1px solid rgba(108,45,213,0.25);
+      box-shadow: 0 15px 50px rgba(108,45,213,0.12), 0 6px 18px rgba(0,230,168,0.05);
+      transform: translateY(-6px);
+      transition: transform 250ms linear, box-shadow 250ms linear;
+    }
+
+    /* Titre avec texte dégradé (clip) + contour léger */
+    body.konami h1{
+      background: linear-gradient(90deg, var(--pf-primary), var(--pf-highlight), var(--pf-accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      -webkit-text-stroke: 0.6px rgba(0,0,0,0.25);
+      font-weight:800;
+      letter-spacing: -0.01em;
+    }
+
+    /* Accent glow */
+    body.konami .glow{
+      display:inline-block;
+      padding:0.35rem 0.6rem;
+      border-radius:999px;
+      background: linear-gradient(90deg, rgba(108,45,213,0.12), rgba(0,230,168,0.08));
+      border: 1px solid rgba(108,45,213,0.12);
+      color: #eafbf7;
+      box-shadow: 0 6px 30px rgba(108,45,213,0.06), 0 2px 12px rgba(0,230,168,0.03);
+    }
+
+    /* Background animé en diagonale subtil */
+    body.konami::before{
+      content:"";
+      position:fixed; inset:0; z-index:-1;
+      background: linear-gradient(60deg, rgba(108,45,213,0.06) 0%, rgba(255,93,162,0.03) 30%, rgba(0,230,168,0.02) 60%, transparent 100%);
+      pointer-events:none;
+      mix-blend-mode: screen;
+    }
+
+    /* petite animation pour montrer l'activation */
+    .konami-badge{
+      display:inline-grid;place-items:center;
+      padding:0.45rem 0.6rem;border-radius:10px;font-weight:700;
+      background:linear-gradient(90deg,var(--pf-primary),var(--pf-accent));
+      color:white;
+      box-shadow: 0 6px 20px rgba(108,45,213,0.18);
+      transform: translateY(-6px);
+      transition: transform .25s cubic-bezier(.2,.9,.4,1);
+    }
+
+    /* responsive */
+    @media (max-width:640px){
+      .card{padding:1.2rem}
+      .controls{gap:8px}
+    }
+  

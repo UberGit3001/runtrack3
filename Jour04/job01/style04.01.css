@@ -1,0 +1,43 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 40px;
+}
+
+button {
+    background: #4caf50;
+    border: none;
+    padding: 12px 20px;
+    color: white;
+    font-size: 1.1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    margin-top: 20px;
+}
+
+button:hover {
+    background: #45a049;
+    box-shadow: 5px 5px 10px rgba(112, 128, 86, 0.7);
+}
+
+/* Pour que les sauts de ligne du .txt soient respectés */
+p {
+    margin-top: 25px;
+    font-size: 1.3rem;
+    line-height: 1.4;
+    white-space: pre-line;
+}
+#expression {
+    color: #ffcc00;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.5);
+}
+
+
+
+
+
+

@@ -5,14 +5,21 @@ let jsonString = {
     "nb_staff": "11",
     "creation": "2019"
 }
-
+// Fonction qui reçoit une chaîne JSON et une clé, et qui retourne la valeur associée à cette clé
 function jsonValueKey(jsonString, key) {
+     try {
+        // On convertit le JSON (en string) en un objet JavaScript utilisable
+        const obj = JSON.parse(jsonString);
+        // On retourne la valeur liée à la clé passée en paramètre
+        return obj[key] ?? "Clé introuvable !";
+    } catch (error) {
+        // Si la chaîne n’est pas un JSON valide, on retourne un message d’erreur
+        console.error("JSON invalide :", error);
+        return null;
+        // return "JSON invalide ";
+    }
 
-    // On convertit le JSON (en string) en un objet JavaScript utilisable
-    const obj = JSON.parse(jsonString);
-
-    // On retourne la valeur liée à la clé passée en paramètre
-    return obj[key];
+  
 }
 console.log(jsonValueKey(JSON.stringify(jsonString), "name"));      // Affiche "La Plateforme_"
 console.log(jsonValueKey(JSON.stringify(jsonString), "address"));   // Affiche "8 rue d'hozier"

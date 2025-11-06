@@ -59,7 +59,7 @@ if (isset($_GET["register"]) && $_GET["register"] === "success") {
 <title>Connexion</title>
 </head>
 <body>
-
+<div class="form-container">
 <h2>Connexion</h2>
 <p style="color:red;"><?= htmlspecialchars($message) ?></p>
 
@@ -78,6 +78,7 @@ if (isset($_GET["register"]) && $_GET["register"] === "success") {
     <p style="text-align:center;margin-top:10px;">
         Pas encore inscrit ? <a href="inscription.php">Créer un compte</a>
     </p>
+</div>
 
 </body>
 </html>

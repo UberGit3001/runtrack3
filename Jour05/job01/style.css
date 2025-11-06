@@ -14,18 +14,23 @@ html {
 body {
     width: 100%;
     font-family: Arial, sans-serif;
-    background: #0e1525;
-    color: #fff;
+    /* background: #0e1525; */
+    background: #fff;
+    /* color: #fff; */
+    color:  #0e1525;
     margin: 0;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
 /* Encadré formulaire */
 .form-container {
-    background: #18233a;
+    /* background: #18233a; */
+    background: rgba(24, 35, 58, 0.85);
+    color: #fff;
     width: 360px;
     padding: 30px;
     border-radius: 12px;
@@ -77,13 +82,16 @@ button:hover {
     border-radius: 6px;
     text-align: center;
     margin-bottom: 15px;
+    color: #f9ac06;
+}
+
+.error {
+    /* background: #b10000; */
+    color: #03fae5;
 }
 
 .success {
     background: #0f9b4e;
-}
-.error {
-    background: #b10000;
 }
 
 /* Liens */
@@ -95,7 +103,8 @@ p a:hover {
 }
 
 .error-message {
-    color: #ff6262;
+    /* color: #ff6262; */
+    color: #f9ac06;
     font-size: 0.8rem;
     margin-bottom: 5px;
 }

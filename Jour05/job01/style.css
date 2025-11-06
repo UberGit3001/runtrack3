@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    width: 100%;
+    height: 100%;
+}
+
+/* Mise en page centrale */
+body {
+    width: 100%;
+    font-family: Arial, sans-serif;
+    background: #0e1525;
+    color: #fff;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Encadré formulaire */
+.form-container {
+    background: #18233a;
+    width: 360px;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(255,255,255,0.08);
+}
+
+/* Titres */
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Champs */
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0 5px;
+    border-radius: 6px;
+    border: none;
+    background: #fff;
+    color: #000;
+}
+
+input:focus {
+    outline: 2px solid #00a6ff;
+    box-shadow: -5px -5px 5px rgba(0,166,255,0.5);
+}
+
+/* Boutons */
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    background: #00a6ff;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+button:hover {
+    background: #0088c4;
+}
+
+/* Messages */
+.alert {
+    padding: 12px;
+    border-radius: 6px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.success {
+    background: #0f9b4e;
+}
+.error {
+    background: #b10000;
+}
+
+/* Liens */
+p a {
+    color: #00a6ff;
+}
+p a:hover {
+    text-decoration: underline;
+}
+
+.error-message {
+    color: #ff6262;
+    font-size: 0.8rem;
+    margin-bottom: 5px;
+}
+
+.logout-success {
+    background: #e2ffe2;
+    color: #087408;
+    padding: 10px 15px;
+    border-left: 4px solid #4caf50;
+    border-radius: 4px;
+    width: fit-content;
+    margin: 10px auto;
+    text-align: center;
+}
+.success-message {
+    color: #087408;
+    font-size: 0.8rem;
+    margin-bottom: 5px;
+}

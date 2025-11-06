@@ -24,6 +24,7 @@
 
 <p id="result"></p>
 
+<cript src="jquery-ui.min.js"></script>  
 <script src="script03.02.js"></script>
 
 </body>

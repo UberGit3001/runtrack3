@@ -7,7 +7,13 @@ document.addEventListener("DOMContentLoaded", () => {
         const prenom = formInscription.prenom;
         const email = formInscription.email;
         const password = formInscription.password;
-        const confirm = formInscription.confirm;
+        const confirm = formInscription.confirm_password;
+
+        const errNom = document.getElementById("errNom");
+        const errPrenom = document.getElementById("errPrenom");
+        const errEmail = document.getElementById("errEmail");
+        const errPassword = document.getElementById("errPassword");
+        const errConfirm = document.getElementById("errConfirm");
 
         let valid = {
             nom: false,

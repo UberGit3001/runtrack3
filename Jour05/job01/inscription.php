@@ -77,15 +77,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     <?= $message ?>
 
-    <form method="POST">
+    <form id="formInscription" method="POST">
 
         <input type="text" name="nom" placeholder="Nom" required>
+        <span id="errNom" class="form-error"></span>
+
         <input type="text" name="prenom" placeholder="Prénom" required>
+        <span id="errPrenom" class="form-error"></span>
+
         <input type="email" name="email" placeholder="Email" required>
+        <span id="errEmail" class="form-error"></span>
+
         <input type="password" name="password" placeholder="Mot de passe" required>
-        <span id="errPassword" class="error-message"></span>
+        <span id="errPassword" class="form-error"></span>
+
         <input type="password" name="confirm_password" placeholder="Confirmer le mot de passe" required>
-        <span id="errConfirm" class="error-message"></span>
+        <span id="errConfirm" class="form-error"></span>
 
         <!-- Token CSRF -->
         <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token_inscription']; ?>">

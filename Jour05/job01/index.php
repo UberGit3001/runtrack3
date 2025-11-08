@@ -13,8 +13,11 @@ require_once 'databases.php';
 <head>
 <meta charset="UTF-8">
 <meta viewport="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="form.css">
 <link rel="stylesheet" href="style.css">
-<script src="script05.01.js" defer></script>
+<!-- <script src="script05.01.js" defer></script> -->
+<script src="script05.js" defer></script>
+
 <title>Accueil</title>
 </head>
 <body>

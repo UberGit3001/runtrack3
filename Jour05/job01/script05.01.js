@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         email.addEventListener("input", () => {
-            const regex = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+            const regex = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;            
             if (!regex.test(email.value)) {
                 errEmail.textContent = "Format d'email invalide.";
                 valid.email = false;
@@ -52,7 +52,9 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         password.addEventListener("input", () => {
-            const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\d).{8,}$/;
+            // const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\d).{8,}$/;
+            const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+
             if (!regex.test(password.value)) {
                 errPassword.textContent = "8 caractères min, 1 majuscule et 1 chiffre.";
                 valid.password = false;

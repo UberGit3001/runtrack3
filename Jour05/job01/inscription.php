@@ -64,11 +64,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <head>
 <meta charset="UTF-8">
 <title>Inscription</title>
+<link rel="stylesheet" href="form.css">
 <link rel="stylesheet" href="style.css">
-<!-- <link rel="stylesheet" href="form.css"> -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<script src="script05.01.js" defer></script>
+<!-- <script src="script05.01.js" defer></script> -->
+<script src="script05.js" defer></script>
 </head>
 
 <body>
@@ -77,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     <?= $message ?>
 
-    <form id="formInscription" method="POST">
+    <form id="formInscription" method="POST" action="">
 
         <input type="text" name="nom" placeholder="Nom" required>
         <span id="errNom" class="form-error"></span>
@@ -101,7 +102,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </form>
 
     <p style="text-align:center;margin-top:10px;">
-        Déjà un compte ? <a href="connexion.php">Connexion</a>
+        Déjà un compte&nbsp;?&nbsp;&nbsp;<a href="connexion.php">Connexion</a>
     </p>
 </div>
 </body>

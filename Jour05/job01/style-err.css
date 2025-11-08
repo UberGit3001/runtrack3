@@ -1,0 +1,78 @@
+:root{
+  /* adapte ces valeurs à ta charte : boisé / chromé etc. */
+  --danger-700: #b71c1c;     /* texte fort danger */
+  --danger-500: #e53935;     /* accent / bordure */
+  --danger-100: #fff1f0;     /* fond léger */
+  --neutral-900: #0f1720;    /* texte sombre */
+  --radius-sm: 8px;
+  --gap: 0.75rem;
+  --ui-shadow: 0 6px 18px rgba(15,17,32,0.08);
+  --transition-fast: 160ms ease;
+}
+
+/* style principal pour les erreurs intégrées dans un formulaire / ligne */
+.error{
+  display: inline-flex;           /* s'adapte au texte */
+  align-items: center;
+  gap: var(--gap);
+  padding: 0.45rem 0.6rem;
+  background: linear-gradient(180deg, var(--danger-100) 0%, rgba(255,255,255,0.6) 100%);
+  color: var(--danger-700);
+  border: 1px solid rgba(229,57,53,0.12); /* subtle border */
+  border-left: 3px solid var(--danger-500); /* accent visuel */
+  border-radius: var(--radius-sm);
+  box-shadow: var(--ui-shadow);
+  font-size: 0.95rem;
+  line-height: 1.2;
+  max-width: 100%;
+  word-wrap: break-word;
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+/* petit icône d'exclamation en pseudo-élément */
+.error::before{
+  content: "";
+  display: inline-block;
+  width: 1.1rem;
+  height: 1.1rem;
+  flex: 0 0 1.1rem;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23e53935'><path d='M11 7h2v6h-2zM11 15h2v2h-2z'/><path d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z' fill-opacity='0.08'/></svg>");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  transform: translateY(0);
+}
+
+/* variante compacte (ex: sous un input) */
+.error--small{
+  padding: 0.25rem 0.4rem;
+  font-size: 0.85rem;
+  border-left-width: 2px;
+  box-shadow: none;
+  background: transparent;
+}
+
+/* variante block (bandeau visible) */
+.error--block{
+  display: flex;
+  width: 100%;
+  padding: 0.9rem 1rem;
+  margin: 0.5rem 0;
+  border-radius: calc(var(--radius-sm) + 2px);
+}
+
+/* comportement réactif si message long */
+@media (max-width: 420px){
+  .error{ font-size: 0.9rem; gap: 0.5rem; }
+  .error::before{ width: 0.95rem; height: 0.95rem; }
+}
+
+/* animation d'apparition (optionnelle) */
+.error--enter{
+  opacity: 0;
+  transform: translateY(-6px) scale(0.995);
+  animation: errIn 220ms forwards cubic-bezier(.2,.9,.3,1);
+}
+@keyframes errIn {
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}

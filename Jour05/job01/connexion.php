@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
 }
-if (isset($_GET["register"]) && $_GET["register"] === "success") {
+if (isset($_GET["inscription"]) && $_GET["inscription"] === "success") {
     $message = "<p class='alert success'> Compte créé, connectez-vous</p>";
 }
 }
@@ -52,16 +52,23 @@ if (isset($_GET["register"]) && $_GET["register"] === "success") {
 <meta charset="UTF-8">
 <viewport content="width=device-width, initial-scale=1.0">
 
-<!-- <link rel="stylesheet" href="form.css"> -->
+<link rel="stylesheet" href="form.css">
+<!-- <link rel="stylesheet" href="style-err.css"> -->
 <link rel="stylesheet" href="style.css">
-<script src="./script05.01.js" defer></script>
+<!-- <script src="./script05.01.js" defer></script> -->
+<script src="./script05.js" defer></script>
 
 <title>Connexion</title>
 </head>
 <body>
 <div class="form-container">
 <h2>Connexion</h2>
-<p style="color:red;"><?= htmlspecialchars($message) ?></p>
+<!-- <p style="color:red;"><?= htmlspecialchars($message) ?></p> -->
+ <!-- Remplacer inline style par une classe -->
+<p class="error" role="alert" aria-live="assertive">
+  <?= htmlspecialchars($message) ?>
+</p>
+
 
 <form id="formConnexion" method="POST" action="">
     <input type="email" name="email" placeholder="Email" required>
@@ -76,7 +83,7 @@ if (isset($_GET["register"]) && $_GET["register"] === "success") {
     <button type="submit">Se connecter</button>
 </form>
     <p style="text-align:center;margin-top:10px;">
-        Pas encore inscrit ? <a href="inscription.php">Créer un compte</a>
+        Pas encore inscrit&nbsp;?&nbsp;&nbsp;<a href="inscription.php">Créer un compte</a>
     </p>
 </div>
 

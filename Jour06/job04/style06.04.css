@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    padding: 20px;
+    gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;    
+}
+
+/* RESET BASIQUE */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* HEADER */
+header {
+    background: #275fa0;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+/* HAMBURGER BUTTON */
+.hamburger {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.section {
+    /* width: 300px; */
+    height: 200px;
+    font-size: 2rem;
+    color: white;
+    font-family: Arial, sans-serif;
+    background-color: #88c1d0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1 0 100%; /* Mobile par défaut (≤ 767px) */
+    border: 1px solid #fff;
+}
+
+
+/* 768px à 1599px = 2 sections par ligne */
+@media screen and (min-width: 768px) and (max-width: 1599px) {
+    .section {
+        flex: 1 0 45%;
+        flex-direction: row;
+    }
+}
+
+/* ≥ 1600px = 4 sections par ligne */
+@media screen and (min-width: 1600px) {
+    .section {
+        flex: 1 0 24%;
+        flex-direction: row;
+
+    }
+}

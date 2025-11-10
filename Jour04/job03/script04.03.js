@@ -1,22 +1,25 @@
+// Initialisation des pokemons
+let pokemons =localStorage.getItem('pokemons')?JSON.parse(localStorage.getItem('pokemons')) : [];
+display(pokemons);
+
+// Fetch pour récupérer le JSON
+fetch("pokemon.json")
+    .then(response => response.json())
+    .then(data => {
+        pokemons = data;
+        // Afficher tous les pokemons au chargement
+       
+    })
+    .catch(error => console.error('Erreur:', error));
+
 // Événement clic sur le bouton "Filtrer"
 document.getElementById("filter").addEventListener("click", () => {
-
-    // Récupération des valeurs du formulaire
-   
+    // Récupération des valeurs du formulaire   
     const idValue = document.getElementById("id").value.trim();
     const nameValue = document.getElementById("name").value.trim().toLowerCase();
     const typeValue = document.getElementById("type").value.trim().toLowerCase();
-
-    // Fetch pour récupérer le JSON
-    fetch("pokemon.json")
-        .then(response => response.json())
-        .then(data => {
-
-            const resultsDiv = document.getElementById("results");
-            resultsDiv.innerHTML = ""; // réinitialise l'affichage
-
             // Filtrage des Pokémon
-            const filtered = data.filter(pokemon => {
+            const filtered = pokemons.filter(pokemon => {
                 // Nom français ou anglais
                 const nameFR = String(pokemon.name.french ?? "").toLowerCase();
                 const nameEN = String(pokemon.name.english ?? "").toLowerCase();
@@ -35,14 +38,22 @@ document.getElementById("filter").addEventListener("click", () => {
 
                 return idMatch && nameMatch && typeMatch;
             });
+            // Sauvegarder dans localStorage et afficher
+            localStorage.setItem('pokemons', JSON.stringify(filtered));
+            // Afficher les résultats filtrés
+            display(filtered);
+        });
 
-            // Affichage des résultats
-            if (filtered.length === 0) {
+function display(pokemons){
+     const resultsDiv = document.getElementById("results");
+            resultsDiv.innerHTML = ""; // réinitialise l'affichage
+      // Affichage des résultats
+            if (pokemons.length === 0) {
                 resultsDiv.innerHTML = "<p style='color:red;'><strong>Pokémon non trouvé !</strong></p>";
                 return;
             }
 
-            filtered.forEach(poke => {
+            pokemons.forEach(poke => {
                 const card = document.createElement("div");
                 card.className = "pokemon-card";
 
@@ -67,6 +78,4 @@ document.getElementById("filter").addEventListener("click", () => {
 
                 resultsDiv.appendChild(card);
             });
-        })
-        .catch(err => console.error("Erreur Fetch :", err));
-});
+}

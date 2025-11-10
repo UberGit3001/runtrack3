@@ -6,12 +6,12 @@
 
 html, body {
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
 }
 
 body {
     width: 100%;
-    height: 100vh;
+    /* height: 100%; */
     /* padding: 20px; */
     display: flex;
     flex-wrap: wrap;
@@ -23,10 +23,11 @@ body {
 /* HEADER */
 header {
     width: 100%;
-    background: #275fa0;
-    padding: 10px;
+    background: #275fa0;    
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;   
 }
 
 nav .nav-links {
@@ -52,7 +53,7 @@ nav .nav-links a:hover {
 .hamburger {
     display: none;
     /* display: block; */
-    font-size: 2rem;
+    font-size: 1.5rem;
     background: none;
     border: none;
     color: white;
@@ -61,7 +62,7 @@ nav .nav-links a:hover {
 
 main {
     width: 100%;
-    height: calc(100vh - 41.46px);
+    height: calc(100% - 41.46px);
     padding: 20px;
     gap: 20px;
     display: flex;
@@ -105,6 +106,64 @@ main .section {
 }
 
 
+/* Bouton menu */
+.menu-toggle {
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    position: relative;
+    z-index: 1001;
+}
+
+/* Icônes */
+.menu-toggle .burger { display: inline; }
+.menu-toggle .close { display: none; }
+
+/* Toggle actif */
+.menu-toggle.active .burger { display: none; }
+.menu-toggle.active .close { display: inline; }
+
+/* Menu mobile caché */
+#mobileMenu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 70%;
+    height: 100vh;
+    background: #111;
+    transform: translateX(100%);
+    transition: 0.3s ease-in-out;
+    padding-top: 80px;
+    z-index: 1000;
+}
+
+/* Menu visible */
+#mobileMenu.active {
+    transform: translateX(0);
+}
+
+/* Desktop : menu visible sans burger */
+@media (min-width: 769px) {
+    .menu-toggle {
+        display: none;
+    }
+
+    #mobileMenu {
+        transform: translateX(0);
+        position: static;
+        height: auto;
+        width: auto;
+        background: none;
+    }
+}
+
+
+
+
+
+
 /* 768px à 1599px = 2 sections par ligne */
 @media screen and (min-width: 768px) and (max-width: 1599px) {
     main .section {
@@ -124,36 +183,58 @@ main .section {
 
 /* ≤ 767px */
 @media screen and (max-width: 767px) {
-    nav {
-        display: flex;}
-
-    nav .nav-links {
+    
+    header {
+        display: flex;
+        flex-direction: column;
+        height: 60px;
+        max-height: 60px;
+    }
+    nav ul.nav-links {
+        position: relative;
+        top: 0px;
+        left: 0;
         display: none;
         flex-direction: column;
         background: #275fa0;
         width: 100%;
         padding: 10px 0;
     }
-
-    nav .nav-links.active {
-        position: relative;
-        top: 41.46px;
-        left: 0;
+    
+    nav ul.nav-links.active {
+        
         display: flex;        
         flex-direction: column;
         align-items: flex-start;
-        background: #275fa0;
+        background: rgba(39, 95, 160, 0.7);
+        /* background: #275fa0; */
         width: 200px;        
         padding: 10px 0;
+    }
+    
+    nav .nav-links li {
+        width: 100%;
+        padding: 0 10px;
+        gap: 0;
         border-bottom: 1px solid #fff;
     }
 
+    nav .nav-links a {
+            /* padding: 10px 20px; */
+            width: 100%;
+        }
+
     .hamburger {
-        display: inline-block;        
-        margin-left: auto;
+        display: block;        
+        align-self: flex-end;
     }
 
     .hamburger:focus {
         outline: none;
+    }
+
+    .hamburger.active {
+        color: #d1eaff;
+        /* opacity: 1; */
     }
 }

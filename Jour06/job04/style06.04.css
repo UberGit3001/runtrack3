@@ -4,93 +4,58 @@
     box-sizing: border-box;
 }
 
-html, body {
-    width: 100%;
-    /* height: 100%; */
+html {
+    width: 100vw;
+    height: 100vh;    
+    max-height: 100vh; /*permet à la page de s'étendre naturellement */
 }
+
 
 body {
     width: 100%;
-    /* height: 100%; */
-    /* padding: 20px; */
+    height: 100%;
+    /* gap: 20px; */
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;    
-    font-family: Arial, sans-serif;
+    flex-direction: column;
+     /*align-items: center;    
+    justify-content: center; */
 }
 
-/* HEADER */
-header {
-    width: 100%;
-    background: #275fa0;    
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;   
-}
-
-nav .nav-links {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    margin: 0;
-}
-
-nav .nav-links a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.2rem;
-}
-
-nav .nav-links a:hover {
-    text-decoration: underline;
-    color: #d1eaff;
-}   
-
-/* HAMBURGER BUTTON */
-.hamburger {
-    display: none;
-    /* display: block; */
-    font-size: 1.5rem;
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-}
 
 main {
     width: 100%;
-    height: calc(100% - 41.46px);
+    height: 100%;
     padding: 20px;
-    gap: 20px;
     display: flex;
+    /* flex-direction: column; */
     flex-wrap: wrap;
-    /* flex: 1; */
-    background-color: #f0f0f0;
-    display: flex;
+    gap: 10px;
     justify-content: center;
-    align-items: center;
+    align-items: center; 
+}
+
+.section-h1 {
+    display: inline-block;
+    flex: 1 0 100%;
     font-size: 2rem;
-    color: #88c1d0;
-}
-
-main h1 {
-    width: 100%;
-    text-align: center;
     margin-bottom: 20px;
-}
-
-main p {
-    width: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #275fa0;
     text-align: center;
-    /* font-size: 1.2rem; */
-    color: #333;
-    margin: 0 0 20px 0;
 }
 
-main .section {
+.section-h1 h1 {
+    margin-bottom: 20px;
+    font-size: clamp(1.5rem, 5vw, 3rem);
+    /* min: 1.5rem | préféré: 5vw | max: 3rem */
+}
+
+.section-h1 p {
+    font-size: clamp(0.875rem, 2vw, 1.25rem);
+    /* min: 0.875rem | préféré: 2vw | max: 1.25rem */
+}
+
+.section {
     /* width: 300px; */
     height: 200px;
     font-size: 2rem;
@@ -106,36 +71,104 @@ main .section {
 }
 
 
-/* Bouton menu */
+/* 768px à 1599px = 2 sections par ligne */
+@media screen and (min-width: 768px) and (max-width: 1599px) {
+    .section {
+        flex: 1 0 45%;
+        flex-direction: row;
+    }
+}
+
+/* ≥ 1600px = 4 sections par ligne */
+@media screen and (min-width: 1600px) {
+    .section {
+        flex: 1 0 24%;
+        flex-direction: row;
+
+    }
+}
+
+
+
+/* ===============
+    HEADER GLOBAL 
+   =============== */
+
+
+header {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    /* justify-content: space-between; */
+    background: #275fa0;
+    padding: 20px 10px ;
+}
+
+/* Menu Desktop par défaut */
+nav {
+    display: block;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    /* gap: 20px; */
+}
+
+nav ul li a {
+    color: #fff;
+    font-size: 1.2rem;
+    text-decoration: none;
+    /* padding: 10px 15px; */
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Bouton Menu - caché sur desktop */
 .menu-toggle {
-    font-size: 2rem;
+    display: none;
+    font-size: 2rem;    
     background: none;
     border: none;
-    cursor: pointer;
     color: #fff;
-    position: relative;
+    cursor: pointer;
     z-index: 1001;
 }
 
 /* Icônes */
-.menu-toggle .burger { display: inline; }
-.menu-toggle .close { display: none; }
+.menu-toggle .burger { 
+    display: inline;
+}
+.menu-toggle .close { 
+    display: none;
+}
 
-/* Toggle actif */
-.menu-toggle.active .burger { display: none; }
-.menu-toggle.active .close { display: inline; }
+/* Lorsqu'il est actif → on inverse les icônes */
+.menu-toggle.active .burger { 
+    display: none; 
+}
+.menu-toggle.active .close { 
+    display: inline; 
+}
 
-/* Menu mobile caché */
+/* Menu Mobile (masqué par défaut) */
 #mobileMenu {
     position: fixed;
     top: 0;
     right: 0;
     width: 70%;
     height: 100vh;
-    background: #111;
+    background: rgba(17, 17, 17, 0.95);
     transform: translateX(100%);
-    transition: 0.3s ease-in-out;
+    transition: transform .3s ease-in-out;
     padding-top: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     z-index: 1000;
 }
 
@@ -144,97 +177,71 @@ main .section {
     transform: translateX(0);
 }
 
-/* Desktop : menu visible sans burger */
-@media (min-width: 769px) {
-    .menu-toggle {
-        display: none;
+/* Liens Mobile */
+#mobileMenu a {
+    color: white;
+    font-size: 1.5rem;
+    padding: 10px 25px;
+    width: 100%;
+    text-decoration: none;
+}
+
+#mobileMenu a:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+/* Responsive - Mobile/Tablette */
+@media screen and (max-width: 768px) {
+    
+    /* On remplace le menu desktop par burger */
+    nav ul {
+        display: flex;
+        flex-direction: column; 
+        
     }
+
+    nav ul li {
+        margin: 20px 0;
+    }   
+    
+    nav li a {
+        font-size: 1.5rem;
+        padding: 20px 30px;
+    }
+    .menu-toggle {
+        display: block;
+    }
+
+    #mobileMenu a {
+    color: #f0f1f2;
+    /* color: yellowgreen; */
+}
+
+
+}
+
+/* Desktop - Menu visible sans burger */
+@media screen and (min-width: 769px) {
 
     #mobileMenu {
-        transform: translateX(0);
+        transform: none;
         position: static;
         height: auto;
-        width: auto;
         background: none;
-    }
-}
-
-
-
-
-
-
-/* 768px à 1599px = 2 sections par ligne */
-@media screen and (min-width: 768px) and (max-width: 1599px) {
-    main .section {
-        flex: 1 0 42%;
+        width: auto;
+        padding: 0;
         flex-direction: row;
     }
-}
 
-/* ≥ 1600px = 4 sections par ligne */
-@media screen and (min-width: 1600px) {
-    main .section {
-        flex: 1 0 24%;
-        flex-direction: row;
+    #mobileMenu a {
+        font-size: 1.2rem;
+        padding: 40px;
+        width: auto;
+    }
 
-    }
-}
-
-/* ≤ 767px */
-@media screen and (max-width: 767px) {
-    
-    header {
-        display: flex;
-        flex-direction: column;
-        height: 60px;
-        max-height: 60px;
-    }
-    nav ul.nav-links {
-        position: relative;
-        top: 0px;
-        left: 0;
-        display: none;
-        flex-direction: column;
-        background: #275fa0;
-        width: 100%;
-        padding: 10px 0;
-    }
-    
-    nav ul.nav-links.active {
+    #mobileMenu li {
+        display: inline;
+        padding: 30px;
         
-        display: flex;        
-        flex-direction: column;
-        align-items: flex-start;
-        background: rgba(39, 95, 160, 0.7);
-        /* background: #275fa0; */
-        width: 200px;        
-        padding: 10px 0;
-    }
-    
-    nav .nav-links li {
-        width: 100%;
-        padding: 0 10px;
-        gap: 0;
-        border-bottom: 1px solid #fff;
-    }
-
-    nav .nav-links a {
-            /* padding: 10px 20px; */
-            width: 100%;
-        }
-
-    .hamburger {
-        display: block;        
-        align-self: flex-end;
-    }
-
-    .hamburger:focus {
-        outline: none;
-    }
-
-    .hamburger.active {
-        color: #d1eaff;
-        /* opacity: 1; */
     }
 }

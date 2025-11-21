@@ -1,0 +1,116 @@
+
+    * { 
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box; 
+    }
+
+    body { 
+        font-family: Arial, 
+        sans-serif;  
+    }
+
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    header, footer { 
+        width: 100%;
+        background: #f8f9fa; 
+        padding: 1rem 2rem; 
+    }
+
+    nav ul { 
+        list-style: none; 
+        padding: 0; 
+        display: flex; 
+        gap: 1rem; 
+    }
+
+    nav ul li {
+        margin-left: 20px;
+    }
+    
+    /* ================================== */
+    
+    /* Liens du menu */
+    nav ul a {
+        position: relative;
+        text-decoration: none;
+        color: #333;
+        /* padding: 5px 0;     */
+}
+
+    nav ul a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -2px; /* sous le texte */
+        width: 0%;
+        height: 20px;
+        /* background-color: #456; */
+        z-index: 0;
+        transition: width 0.3s ease-in-out;
+    }
+    
+    /* Au survol */
+    nav ul a:hover::after {
+        background-color: rgb(206, 164, 248);
+        color: whitesmoke;
+        width: 100%;
+        border-radius: 6px;
+    }
+
+    /* Optionnel : animation keyframes */
+    @keyframes souligner {
+        from { width: 0; }
+        to { width: 100%; }
+    }
+
+    /* utiliser animation au lieu de transition */
+    nav ul a:hover::after {
+        animation: souligner 0.5s forwards;
+    }
+
+    /* ================================== */
+
+    header .Logo-initial {
+        width: 200px;
+        height: 40px;
+        cursor: pointer;
+    }
+
+    header .Logo-initial:hover {
+        transform: scale(1.03);
+    }
+
+    section {
+        width: 80%;
+        margin: 20px auto;
+    }
+
+    section h2 {
+        color: #456;
+    }
+
+    form { 
+        max-width: 600px; 
+        margin: 2rem auto; 
+    }
+
+    fieldset { 
+        margin-bottom: 1rem; 
+        padding: 1rem; 
+        border: 1px solid #ddd; 
+    }
+    .form-group { margin-bottom: 1rem; }
+    label { display: block; margin-bottom: 0.5rem; }
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] { width: 100%; padding: 0.5rem; }
+    .radio-group, .checkbox-group { display: flex; gap: 1rem; }
+    .inline-item { display: flex; align-items: center; gap: 0.3rem; }
+    button { background: #007bff; color: white; padding: 0.75rem 1.5rem; border: none; cursor: pointer; }
+    

@@ -56,9 +56,16 @@
     }
     
     /* Au survol */
+    nav ul a:hover {
+        /* background-color: rgb(206, 164, 248); */
+        color: whitesmoke;
+        width: 100%;
+        border-radius: 6px;
+    }
+    /* Au survol */
     nav ul a:hover::after {
         background-color: rgb(206, 164, 248);
-        color: whitesmoke;
+        /* color: whitesmoke; */
         width: 100%;
         border-radius: 6px;
     }
@@ -83,7 +90,7 @@
     }
 
     header .Logo-initial:hover {
-        transform: scale(1.03);
+        transform: scale(1.05) ease-in;
     }
 
     section {

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> -->
+    <link rel="shortcut icon" href="./assets/images/Logo-initial_ (250 x 60 px).png" type="image/x-icon">
+
+    <!-- ==== Tailwind CSS ==== -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- ==== #Tailwind CSS ==== -->
+
+    <title>Formulaire d'inscription</title>
+
+</head>
+<body>
+    
+    <header class="w-full bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white shadow-lg">
+    <div class="max-w-6xl mx-auto flex items-center justify-between py-4 px-4">
+
+        <!-- LOGO -->
+        <img class="w-40" 
+            src="./assets/images/Logo-initial_ (250 x 60 px).png" 
+            alt="mes initial">
+        
+        <!-- NAVIGATION -->
+        <nav>
+            <ul class="flex gap-6 text-lg font-medium">
+                <li><a class="hover:text-yellow-300 transition" href="index.html">Accueil</a></li>
+                <li><a class="hover:text-yellow-300 transition" href="index.html">Inscription</a></li>
+                <li><a class="hover:text-yellow-300 transition" href="index.html">Connexion</a></li>
+                <li><a class="hover:text-yellow-300 transition" href="index.html">Rechercher</a></li>
+            </ul>
+        </nav>
+
+    </div>
+    </header>
+
+    
+    <!-- ========== FORMULAIRE ========== -->
+    <section>
+        <h2>Création de compte</h2>
+        <form method="POST" action="#">
+<div class="container-form">
+
+
+            <!-- Civilité -->
+            <fieldset>
+                <legend>Civilité</legend>
+
+                <div class="radio-group">
+                    <div class="inline-item">
+                        <input type="radio" id="femme" name="civilite" value="femme" required checked>
+                        <label for="femme">Femme</label>
+                    </div>
+                    <div class="inline-item">
+                        <input type="radio" id="homme" name="civilite" value="homme">
+                        <label for="homme">Homme</label>
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- ==== Identité ==== -->
+            <div class="form-group">
+                <label for="prenom">Prénom</label>
+                <input type="text" id="prenom" name="prenom" required placeholder="Votre prénom ..." autocomplete="username">
+            </div>
+
+            <div class="form-group">
+                <label for="nom">Nom</label>
+                <input type="text" id="nom" name="nom" required placeholder="Votre nom ...">
+            </div>
+
+            <!-- ==== Adresse domicile personnel ==== -->
+            <div class="form-group">
+                <label for="adresse">Adresse</label>
+                <input type="text" id="adresse" name="adresse" required placeholder="Votre adresse ...">
+            </div>
+
+            <!-- ==== Email ==== -->
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required placeholder="Votre adresse e-mail ici ..." autocomplete="on">
+            </div>
+
+            <!-- ==== Password ==== -->
+            <div class="form-group">
+                <label for="password">Mot de passe</label>
+                <input type="password" id="password" name="password" required placeholder="Votre mot de passe ici ..." autocomplete="new-password">
+            </div>
+
+            <div class="form-group">
+                <label for="confirm_password">Confirmer le mot de passe</label>
+                <input type="password" id="confirm_password" name="confirm_password" required placeholder="Confirmez votre mot de passe ..." autocomplete="new-password">
+            </div>
+
+            <!-- ==== Passions ==== -->
+            <fieldset>
+                <legend>Passions</legend>
+                <div class="checkbox-group">
+                    <div class="inline-item">
+                        <input type="checkbox" id="informatique" name="passions[]" value="informatique">
+                        <label for="informatique">Informatique</label>
+                    </div>
+                    <div class="inline-item">
+                        <input type="checkbox" id="voyages" name="passions[]" value="voyages">
+                        <label for="voyages">Voyages</label>
+                    </div>
+                    <div class="inline-item">
+                        <input type="checkbox" id="sport" name="passions[]" value="sport">
+                        <label for="sport">Sport</label>
+                    </div>
+                    <div class="inline-item">
+                        <input type="checkbox" id="lecture" name="passions[]" value="lecture">
+                        <label for="lecture">Lecture</label>
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- ==== Bouton ==== -->
+            <button type="submit">Valider l'inscription</button>
+        </form>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="index.html">Inscription</a></li>
+                <li><a href="index.html">Connexion</a></li>
+                <li><a href="index.html">Rechercher</a></li>
+            </ul>
+        </nav>
+    </footer>
+</body>
+</html>

@@ -56,15 +56,15 @@
             <div class="flex gap-8 mt-2">
                 
                 <label for="femme" class="flex items-center gap-2 text-gray-700">
-                    <input type="radio" name="civilite" id="femme" value="femme" required class="text-purple-600 focus:ring-purple-500 focus:ring-2 checked:ring-purple-600
+                    <input type="radio" name="civilite" id="femme" value="femme" checked required class="text-purple-600 focus:ring-purple-500 focus:ring-2 checked:ring-purple-600
                     checked:bg-purple-600 hidden peer">
-                     <span class="w-5 h-5 border-2 border-purple-500 rounded-full hover:border-purple-700 peer-checked:bg-purple-600 peer-checked:border-purple-600 transition">
-                    </span>
+                    
                     <span class="w-5 h-5 border-2 border-purple-500 rounded-full
+                        hover:border-purple-700
                         peer-checked:bg-purple-600
                         peer-checked:border-purple-600
-                        peer-checked:outline peer-checked:outline-[3px] peer-checked:outline-white peer-checked:border-white
-                        transition">                       
+                        peer-checked:outline peer-checked:outline-[1.5px] peer-checked:outline-purple-600 peer-checked:border-white
+                        transition checked">                       
                     </span>
 
                     Femme
@@ -73,7 +73,13 @@
                 <label for="homme" class="flex items-center gap-2 text-gray-700">
                     <input type="radio" name="civilite" id="homme" value="homme" class="text-purple-600 focus:ring-purple-500 focus:ring-2 checked:ring-purple-600
                     checked:bg-purple-600 hidden peer">
-                    <span class="flex w-5 h-5 border-2 border-purple-500 rounded-full hover:border-purple-700 peer-checked:bg-purple-600 peer-checked:border-purple-600 transition">
+
+                    <span class="w-5 h-5 border-2 border-purple-500 rounded-full
+                        hover:border-purple-700
+                        peer-checked:bg-purple-600
+                        peer-checked:border-purple-600
+                        peer-checked:outline peer-checked:outline-[1.5px] peer-checked:outline-purple-600 peer-checked:border-white
+                        transition">                       
                     </span>
                     Homme
                 </label>

@@ -49,25 +49,21 @@
         left: 0;
         bottom: -2px; /* sous le texte */
         width: 0%;
-        height: 20px;
-        /* background-color: #456; */
-        z-index: 0;
-        transition: width 0.3s ease-in-out;
+        height: 20px;        
+        transition: width 0.3s ease-in-out;       
     }
     
     /* Au survol */
-    nav ul a:hover {
-        /* background-color: rgb(206, 164, 248); */
-        color: whitesmoke;
+    nav ul a:hover {        
         width: 100%;
         border-radius: 6px;
     }
     /* Au survol */
-    nav ul a:hover::after {
-        background-color: rgb(206, 164, 248);
-        /* color: whitesmoke; */
+    nav ul a:hover::after {        
+        color: whitesmoke;
+        background-color: rgba(206, 164, 248, 0.2);      
         width: 100%;
-        border-radius: 6px;
+        border-radius: 3px;
     }
 
     /* Optionnel : animation keyframes */

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> -->
+    <link rel="shortcut icon" href="./assets/images/Logo-initial_ (250 x 60 px).png" type="image/x-icon">
+    
+    <!-- ==== Font Awesome ==== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- ==== #Font Awesome ==== -->
+    
+    <!-- ==== Tailwind CSS ==== -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- ==== #Tailwind CSS ==== -->
+
+    <title>Formulaire d'inscription avec classes tailwind</title>
+
+</head>
+<body>
+    
+    <header class="w-full bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white shadow-lg">
+    <div class="max-w-6xl mx-auto flex items-center justify-between py-4 px-4">
+
+        <!-- LOGO -->
+        <img class="w-40" 
+            src="./assets/images/Logo-initial_ (250 x 60 px).png" 
+            alt="mes initial">
+        
+        <!-- NAVIGATION -->
+        <nav>
+            <ul class="flex gap-6 text-lg font-medium">
+                <li><a class="hover:text-yellow-300 transition" href="index.html">Accueil</a></li>
+                <li><a class="hover:text-yellow-300 transition" href="index.html">Inscription</a></li>
+                <li><a class="hover:text-yellow-300 transition" href="index.html">Connexion</a></li>
+                <li><a class="hover:text-yellow-300 transition" href="index.html">Rechercher</a></li>
+            </ul>
+        </nav>
+
+    </div>
+    </header>
+
+    
+    <!-- ========== FORMULAIRE ========== -->
+    
+    <section class="max-w-2xl mx-auto mt-12 bg-white/70 backdrop-blur-sm shadow-xl border border-gray-200 rounded-xl p-8">
+
+    <h2 class="text-3xl font-bold text-center mb-8 text-purple-700">Création de compte</h2>
+
+    <form method="POST" action="#" class="space-y-6">
+
+        <!-- ==== Civilité ==== -->
+        <fieldset class="border border-gray-300 rounded-lg p-4">
+            <legend class="text-lg font-semibold text-purple-600">Civilité</legend>
+
+            <div class="flex gap-8 mt-2">
+                
+                <label for="femme" class="flex items-center gap-2 text-gray-700">
+                    <input type="radio" name="civilite" id="femme" value="femme" required class="text-purple-600 focus:ring-purple-500 focus:ring-2 checked:ring-purple-600
+                    checked:bg-purple-600 hidden peer">
+                     <span class="w-5 h-5 border-2 border-purple-500 rounded-full hover:border-purple-700 peer-checked:bg-purple-600 peer-checked:border-purple-600 transition">
+                    </span>
+                    <span class="w-5 h-5 border-2 border-purple-500 rounded-full
+                        peer-checked:bg-purple-600
+                        peer-checked:border-purple-600
+                        peer-checked:outline peer-checked:outline-[3px] peer-checked:outline-white peer-checked:border-white
+                        transition">                       
+                    </span>
+
+                    Femme
+                </label>
+
+                <label for="homme" class="flex items-center gap-2 text-gray-700">
+                    <input type="radio" name="civilite" id="homme" value="homme" class="text-purple-600 focus:ring-purple-500 focus:ring-2 checked:ring-purple-600
+                    checked:bg-purple-600 hidden peer">
+                    <span class="flex w-5 h-5 border-2 border-purple-500 rounded-full hover:border-purple-700 peer-checked:bg-purple-600 peer-checked:border-purple-600 transition">
+                    </span>
+                    Homme
+                </label>
+            </div>
+        </fieldset>
+
+
+
+        <!-- ==== Prénom ==== -->
+        <div>
+            <label for="prenom" class="block mb-2 text-sm font-medium text-purple-500">Prénom</label>
+            <div class="relative">
+                <i class="fa-solid fa-user absolute top-3 left-3 text-purple-300"></i>
+                <input type="text" id="prenom" name="prenom"
+                    class="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 shadow-sm"
+                    placeholder="Votre prénom ..."
+                    autocomplete="on">
+            </div>
+        </div>
+
+        <!-- ==== Nom ==== -->
+        <div>
+            <label for="nom" class="block mb-2 text-sm font-medium text-purple-500">Nom</label>
+            <div class="relative">
+                <i class="fa-solid fa-id-card absolute top-3 left-3 text-purple-300"></i>
+                <input type="text" id="nom" name="nom"
+                    class="w-full pl-10 pr-3 py-2 focus:outline-none border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 shadow-sm"
+                    placeholder="Votre nom ..." autocomplete="on">
+            </div>
+        </div>
+
+        <!-- ==== Adresse ==== -->
+        <div>
+            <label for="adresse" class="block mb-2 text-sm font-medium text-purple-500">Adresse</label>
+            <div class="relative">
+                <i class="fa-solid fa-house absolute top-3 left-3 text-purple-300"></i>
+                <input type="text" id="adresse" name="adresse"
+                    class="w-full pl-10 pr-3 py-2 focus:outline-none border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 shadow-sm"
+                    placeholder="Votre adresse ..." autocomplete="off">
+            </div>
+        </div>
+
+        <!-- ==== Email ==== -->
+        <div>
+            <label for="email" class="block mb-2 text-sm font-medium text-purple-500">Email</label>
+            <div class="relative">
+                <i class="fa-solid fa-envelope absolute top-3 left-3 text-purple-300"></i>
+                <input type="email" id="email" name="email"
+                    class="w-full pl-10 pr-3 py-2 focus:outline-none border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 shadow-sm"
+                    placeholder="Votre email ..." autocomplete="on">
+            </div>
+        </div>
+
+        <!-- ==== Password ==== -->
+        <div>
+            <label for="password" class="block mb-2 text-sm font-medium text-purple-500">Mot de passe</label>
+            <div class="relative">
+                <i class="fa-solid fa-lock absolute top-3 left-3 text-purple-300"></i>
+                <input type="password" id="password" name="password"
+                    class="w-full pl-10 pr-3 py-2 focus:outline-none border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 shadow-sm"
+                    placeholder="Votre mot de passe ..." autocomplete="new-password">
+            </div>
+        </div>
+
+        <!-- ==== Confirm Password ==== -->
+        <div>
+            <label for="confirm_password" class="block mb-2 text-sm font-medium text-purple-500">Confirmer</label>
+            <div class="relative">
+                <i class="fa-solid fa-check absolute top-3 left-3 text-purple-300"></i>
+                <input type="password" id="confirm_password" name="confirm_password"
+                    class="w-full pl-10 pr-3 py-2 focus:outline-none border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 shadow-sm"
+                    placeholder="Confirmez votre mot de passe ..." autocomplete="new-password">
+            </div>
+        </div>
+
+        <!-- ==== Passions ==== -->
+        <fieldset class="border border-gray-300 rounded-lg p-4">
+            <legend class="text-lg font-semibold text-purple-600">Passions</legend>
+
+            <div class="flex flex-wrap gap-6 mt-3 text-gray-700">
+
+                <label class="flex items-center gap-2 cursor-pointer">
+
+                    <input type="checkbox" name="passions[]" value="informatique" class="hidden peer">
+
+                    <span class="w-5 h-5 border-2 border-purple-600 rounded-md peer-checked:bg-purple-600 peer-checked:border-purple-600 flex items-center justify-center transition">
+                        
+                    <i class="fa-solid fa-check text-white text-xs"></i>
+
+                    </span>                    
+                    Informatique
+                </label>
+
+                <label class="flex items-center gap-2 cursor-pointer">
+                    <input type="checkbox" name="passions[]" value="voyages" class="hidden peer">
+
+                    <span class="w-5 h-5 border-2 border-purple-600 rounded-md peer-checked:bg-purple-600 peer-checked:border-purple-600 flex items-center justify-center transition">
+
+                    <i class="fa-solid fa-check text-white text-xs"></i>
+
+                    </span>
+                    Voyages
+                </label>
+
+                <label class="flex items-center gap-2 cursor-pointer">
+                    <input type="checkbox" name="passions[]" value="sport" class="hidden peer">
+
+                    <span class="w-5 h-5 border-2 border-purple-600 rounded-md peer-checked:bg-purple-600 peer-checked:border-purple-600 flex items-center justify-center transition">
+
+                    <i class="fa-solid fa-check text-white text-xs"></i>
+
+                    </span>
+                    Sport
+                </label>
+
+                <label class="flex items-center gap-2 cursor-pointer">
+
+                    <input type="checkbox" name="passions[]" value="sport"
+                            class="hidden peer">
+
+                    <span class="w-5 h-5 border-2 border-purple-600 rounded-md peer-checked:bg-purple-600 peer-checked:border-purple-600 flex items-center justify-center transition">
+
+                    <i class="fa-solid fa-check text-white text-xs"></i>
+
+                    </span>
+
+                    <span class="text-gray-700">Jeu d'échec</span>
+
+                </label>
+
+                <label class="flex items-center gap-2 cursor-pointer">
+                    <input type="checkbox" name="passions[]" value="lecture" class="hidden peer">
+
+                    <span class="w-5 h-5 border-2 border-purple-600 rounded-md peer-checked:bg-purple-600 peer-checked:border-purple-600 flex items-center justify-center transition">
+
+                    <i class="fa-solid fa-check text-white text-xs"></i>
+
+                    </span>
+                    Lecture
+                </label>
+
+            </div>
+        </fieldset>
+
+        <!-- ==== Submit ==== -->
+        <button type="submit"
+            class="w-full py-3 text-lg font-medium bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition shadow-md hover:shadow-xl">
+            Valider l'inscription
+        </button>
+
+    </form>
+</section>
+
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="w-full bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 text-white mt-12">
+        <div class="max-w-6xl mx-auto flex justify-center md:justify-between items-center py-6 px-4">
+
+            <nav>
+                <ul class="flex flex-wrap gap-6 text-lg font-medium justify-center">
+                    <li><a class="hover:text-yellow-300 transition" href="index.html">Accueil</a></li>
+                    <li><a class="hover:text-yellow-300 transition" href="index.html">Inscription</a></li>
+                    <li><a class="hover:text-yellow-300 transition" href="index.html">Connexion</a></li>
+                    <li><a class="hover:text-yellow-300 transition" href="index.html">Rechercher</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </footer>
+
+</body>
+</html>

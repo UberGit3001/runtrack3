@@ -1,0 +1,25 @@
+<pre>
+
+mon_projet-vercel-via-tailwind/
+├─ package.json
+├─ package-lock.json
+├─ postcss.config.js
+├─ tailwind.config.js
+├─ index.html
+├─ services.html
+├─ contact.html
+├─ README.md
+├─ tailwind_installation.txt
+│
+|
+├─node_modules/
+├─ styles/
+│   ├─ input.css
+│   └─ output.css   (généré automatiquement)
+│
+└─ assets/
+    ├─ img/
+    │   └─ logo_mes_initiales_(250x60px).png
+    └─ icons/
+
+</pre>

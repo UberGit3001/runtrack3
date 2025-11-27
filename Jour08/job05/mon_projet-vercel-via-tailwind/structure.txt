@@ -5,9 +5,9 @@ mon_projet-vercel-via-tailwind/
 ├─ package-lock.json
 ├─ postcss.config.js
 ├─ tailwind.config.js
-├─ index.html
-├─ services.html
-├─ contact.html
+├─ index.php
+├─ services.php
+├─ contact.php
 ├─ README.md
 ├─ tailwind_installation.txt
 │

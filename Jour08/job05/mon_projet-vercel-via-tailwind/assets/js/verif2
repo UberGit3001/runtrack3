@@ -1,0 +1,139 @@
+/**
+ * Fichier : main.js
+ * Rôle : Gestion du formulaire de contact (EmailJS) et du menu mobile
+ */
+
+// On n'utilise QU'UN SEUL écouteur global pour tout le fichier
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // ============================================
+    // 1. VÉRIFICATION DE LA CONFIGURATION (Le Pont PHP)
+    // ============================================
+    // Ce bloc vérifie que les variables PHP ont bien été envoyées à JS
+    if (typeof EMAILJS_CONFIG === 'undefined' || !EMAILJS_CONFIG.publicKey) {
+        console.error('Configuration EmailJS manquante ! Assurez-vous de charger EMAILJS_CONFIG dans votre fichier PHP.');
+        return; // On arrête tout si la config n'est pas là
+    }
+    
+    // ============================================
+    // 2. INITIALISATION D'EMAILJS
+    // ============================================
+    try {
+        emailjs.init(EMAILJS_CONFIG.publicKey);
+        console.log('EmailJS initialisé avec succès');
+    } catch (error) {
+        console.error('Erreur lors de l\'initialisation d\'EmailJS:', error);
+    }
+    
+    // ============================================
+    // 3. GESTION DU FORMULAIRE DE CONTACT
+    // ============================================
+    const contactForm = document.getElementById('contact-form');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', async function(event) {
+            event.preventDefault(); // Empêche le rechargement de la page
+            
+            // Récupération des données
+            const formData = new FormData(this);
+            const templateParams = {
+                from_name: formData.get('name'),
+                from_email: formData.get('email'),
+                message: formData.get('message'),
+                to_email: EMAILJS_CONFIG.recipientEmail,
+                reply_to: formData.get('email')
+            };
+            
+            // Validation de l'email
+            if (!validateEmail(templateParams.from_email)) {
+                alert('Veuillez entrer un email valide');
+                return;
+            }
+            
+            // Gestion de l'état du bouton d'envoi
+            const submitBtn = event.target.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Envoi en cours...';
+            
+            try {
+                // Envoi via EmailJS
+                const response = await emailjs.send(
+                    EMAILJS_CONFIG.serviceId,
+                    EMAILJS_CONFIG.templateId,
+                    templateParams
+                );
+                
+                console.log('Succès:', response);
+                alert('Message envoyé avec succès !');
+                contactForm.reset(); // Vide le formulaire
+                
+            } catch (error) {
+                console.error('Erreur détaillée:', error);
+                alert('Une erreur est survenue lors de l\'envoi. Veuillez réessayer.');
+            } finally {
+                // On remet toujours le bouton à son état normal
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+            }
+        });
+    } else {
+        console.error('Erreur : Formulaire avec id="contact-form" introuvable dans le HTML.');
+    }
+
+    // ============================================
+    // 4. GESTION DU MENU MOBILE
+    // ============================================
+    const mobileMenuButton = document.getElementById('mobileMenuButton');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    // On vérifie que les éléments du menu existent avant de poser des écouteurs
+    if (mobileMenuButton && mobileMenu) {
+        const menuIcon = mobileMenuButton.querySelector('i');
+
+        // Toggle (Ouverture/Fermeture) du menu
+        mobileMenuButton.addEventListener('click', function () {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('block');
+            
+            // Mise à jour de l'icône (bars ou times)
+            if (mobileMenu.classList.contains('hidden')) {
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+            } else {
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-times');
+            }
+        });
+
+        // Fermer le menu si on clique sur un lien (pour les ancres)
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', function () {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('block');
+                menuIcon.classList.replace('fa-times', 'fa-bars');
+            });
+        });
+
+        // Fermer le menu si on clique n'importe où en dehors du menu
+        document.addEventListener('click', function(event) {
+            const isClickInsideMenu = mobileMenu.contains(event.target);
+            const isClickOnButton = mobileMenuButton.contains(event.target);
+            
+            if (!isClickInsideMenu && !isClickOnButton && !mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('block');
+                menuIcon.classList.replace('fa-times', 'fa-bars');
+            }
+        });
+    }
+}); // FIN DU DOMContentLoaded
+
+// ============================================
+// 5. FONCTIONS UTILITAIRES (Hors du scope global)
+// ============================================
+function validateEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}

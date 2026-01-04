@@ -1,0 +1,60 @@
+# .gitignore
+
+# Node / JS
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build output (Tailwind, bundlers)
+dist/
+build/
+.styles-cache/
+.cache/
+# Si tu ne veux PAS committer le CSS compilé, décommente la ligne suivante :
+# styles/output.css
+
+# PHP / Composer
+/vendor/
+/composer.lock   # (optionnel : conserver si tu veux verrouiller les versions)
+
+# Configs et secrets (NE PAS committer)
+.env
+.env.*.local
+/config/config.php
+/config/
+secrets/
+*.key
+*.pem
+*.sql
+portfolio.sql
+*.sqlite
+*.sqlite3
+*.pdf
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs, reports, dépendances temporaires
+logs/
+*.log
+coverage/
+phpunit.xml.cache
+
+# Misc
+*.cache
+*.tmp
+*.swp
+*.swo
+*.bak
+*.old
+*.backup
+
+
+
+# Si on utilises des fichiers spécifiques à notreprojet, on les ajoute ici

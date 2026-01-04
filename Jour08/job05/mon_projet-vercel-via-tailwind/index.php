@@ -1,4 +1,5 @@
-l<?php 
+<?php 
+$config = require __DIR__ . '/config/config.php';
 $currentPage = 'accueil';
 $pageTitle = 'SebNono - Développeur Web & Mobile';
 ?>
@@ -15,10 +16,18 @@ $pageTitle = 'SebNono - Développeur Web & Mobile';
     </p>
 
     <div class="mt-8 flex gap-4 justify-center flex-wrap">
-        <a href="contact.php" class="px-10 py-4 bg-purple-600 hover:bg-purple-700 text-white rounded-lg shadow-lg transition-all duration-200 flex items-center active:bg-purple-900 shadow-purple-200 hover:shadow-xl active:scale-95">
+        <a href="contact.php" class="px-10 py-4 bg-purple-600 hover:bg-purple-700 text-white rounded-lg shadow-lg transition-all duration-200 flex items-center active:bg-purple-900 hover:shadow-xl active:scale-95">
             <i class="fas fa-envelope px-4 mr-2"></i> Me contacter
         </a>
-        
+
+        <a href="assets/files/CV_SEBILLOT_Mehdi.pdf" target="_blank" download><button class="px-10 py-4 bg-purple-600 hover:bg-purple-700 text-white rounded-lg shadow-lg shadow-purple-500/30 hover:shadow-xl hover:shadow-purple-500/40 transition-all duration-200 flex items-center active:bg-purple-900 active:scale-95">&nbsp;&nbsp;
+        <!-- <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+        </svg> -->
+        Mon CV&nbsp;&nbsp;<i class="fa-solid fa-download"></i>
+        </button>
+        </a>
+
         <a href="services.php" class="px-10 py-4 border border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white rounded-lg transition duration-200">
             Voir mes services
         </a>
@@ -26,7 +35,7 @@ $pageTitle = 'SebNono - Développeur Web & Mobile';
 </section>
 
 <section class="mt-20 px-6 max-w-6xl mx-auto">
-    <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Mes Compétences</h2>
+    <h2 class="text-3xl font-bold text-center text-purple-600 mb-12">Mes Compétences</h2>
     
     <div class="grid md:grid-cols-3 gap-8">
         <div class="bg-white rounded-xl shadow-lg p-8 text-center hover:-translate-y-2 transition duration-300">

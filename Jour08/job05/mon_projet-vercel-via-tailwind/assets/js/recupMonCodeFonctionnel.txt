@@ -1,0 +1,161 @@
+//mon main.js
+// ============================================
+// Configuration EmailJS
+// ============================================
+// Initialise EmailJS avec ta clé publique
+// Remplace par ta vraie clé depuis emailjs.com
+// emailjs.init("YOUR_PUBLIC_KEY_HERE");  À obtenir sur emailjs.com
+emailjs.init("CMUfAhGGtJksp2teD"); 
+
+// ============================================
+// Gestion du formulaire de contact
+// ============================================
+document.addEventListener('DOMContentLoaded', function () {
+    const contactForm = document.querySelector('form');
+    
+    if (!contactForm) return; // Si pas de formulaire, on sort
+
+    // Récupère les champs du formulaire
+    const nomInput = document.getElementById('nom');
+    const emailInput = document.getElementById('email');
+    const messageInput = document.getElementById('message');
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+
+    // Écoute la soumission du formulaire
+    contactForm.addEventListener('submit', async function (e) {
+        e.preventDefault(); // Empêche le rechargement de la page
+
+        // Validation simple
+        if (!nomInput.value.trim() || !emailInput.value.trim() || !messageInput.value.trim()) {
+            showNotification('Veuillez remplir tous les champs !', 'error');
+            return;
+        }
+
+        // Validation email
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(emailInput.value)) {
+            showNotification('Veuillez entrer un email valide !', 'error');
+            return;
+        }
+
+        // Désactiver le bouton pendant l'envoi
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Envoi en cours...';
+
+        try {
+            // Envoie l'email via EmailJS
+            const response = await emailjs.send(
+                // "YOUR_SERVICE_ID_HERE",  // À obtenir sur emailjs.com
+                // "YOUR_TEMPLATE_ID_HERE", // À obtenir sur emailjs.com
+                "service_bqwpn1b",  // À obtenir sur emailjs.com
+                "template_vm7r5nu", // À obtenir sur emailjs.com
+                {
+                    // to_email: "MON_EMAIL@exemple.com", // Email où je veux recevoir mes messages
+                    to_email: "sebillot.mehdi@outlook.fr", // Email où je veux recevoir mes messages   
+                    from_name: nomInput.value,
+                    from_email: emailInput.value,
+                    message: messageInput.value,
+                    reply_to: emailInput.value
+                }
+            );
+
+            // Succès
+            showNotification('✓ Message envoyé avec succès !', 'success');
+            contactForm.reset(); // Réinitialise le formulaire
+
+        } catch (error) {
+            console.error('Erreur EmailJS:', error);
+            showNotification('✗ Erreur lors de l\'envoi. Réessayez plus tard.', 'error');
+        } finally {
+            // Réactive le bouton
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Envoyer';
+        }
+    });
+});
+
+// ============================================
+// Fonction pour afficher les notifications
+// ============================================
+function showNotification(message, type = 'success') {
+    // Crée le conteneur de notification
+    const notification = document.createElement('div');
+    notification.className = `fixed top-4 right-4 px-6 py-3 rounded-lg shadow-xl text-white font-semibold z-50 transition-all duration-300 ${
+        type === 'success' ? 'bg-green-500' : 'bg-red-500'
+    }`;
+    notification.textContent = message;
+
+    // Ajoute à la page
+    document.body.appendChild(notification);
+
+    // Animation d'apparition
+    setTimeout(() => {
+        notification.style.opacity = '1';
+    }, 10);
+
+    // Retire après 4 secondes
+    setTimeout(() => {
+        notification.style.opacity = '0';
+        setTimeout(() => {
+            notification.remove();
+        }, 300);
+    }, 4000);
+}
+
+// ============================================
+// Gestion du menu mobile
+// ============================================
+document.addEventListener('DOMContentLoaded', function () {
+    const mobileMenuButton = document.getElementById('mobileMenuButton');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuIcon = mobileMenuButton.querySelector('i');
+
+    // ============================================
+// Gestion du menu mobile
+// ============================================
+document.addEventListener('DOMContentLoaded', function () {
+    const mobileMenuButton = document.getElementById('mobileMenuButton');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuIcon = mobileMenuButton.querySelector('i');
+
+    if (mobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener('click', function () {
+            // Basculer la visibilité du menu
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('block');
+            
+            // Changer l'icône du bouton
+            if (mobileMenu.classList.contains('hidden')) {
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+            } else {
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-times');
+            }
+        });
+
+        // Fermer le menu quand on clique sur un lien
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', function () {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('block');
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+            });
+        });
+
+        // Fermer le menu si on clique en dehors
+        document.addEventListener('click', function(event) {
+            if (!mobileMenu.contains(event.target) && 
+                !mobileMenuButton.contains(event.target) && 
+                !mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('block');
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+            }
+        });
+    }
+});
+});

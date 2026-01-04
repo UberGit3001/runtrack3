@@ -1,0 +1,49 @@
+<pre>
+
+mon_projet-vercel-via-tailwind/
+|
+├─ api/   
+│   └─ send_code.php
+|
+├─ assets/
+|    ├─ files/
+|    │   └─ CV_SEBILLOT_Mehdi.pdf
+|    │
+|    ├─ icons/
+|    │
+|    ├─ img/
+|    │   └─ logo_mes_initiales_(250x60px).png
+|    └─ js/
+|        ├─ email.min.js
+|        └─ main.js
+|
+├─ config/   
+│   └─ config.php
+|
+├─ inc/
+│   ├─ classes.php
+│   ├─ footer.php
+│   └─ header.php
+|
+├─ structure/
+│   └─ stucture.txt
+|
+├─ styles/
+│   ├─ input.css
+│   └─ output.css   (généré automatiquement)
+|
+|
+├─ .gitignore
+├─ .stylelintrc.json
+├─ contact.php
+├─ index.php
+├─ package-lock.json
+├─ package.json
+├─ portfolio.sql
+├─ postcss.config.js
+├─ README.md
+├─ services.php
+├─ tailwind.config.js
+│
+
+</pre>

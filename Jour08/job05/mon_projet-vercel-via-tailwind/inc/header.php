@@ -3,10 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="./styles/output.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-    <title><?= $pageTitle ?? 'SebNono-Portfolio' ?></title>
+   
+      <script src="https://cdn.tailwindcss.com"></script>
+      <link href="./styles/output.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+      <!-- ==== emailjs ==== -->
+
+      <!-- Dans votre fichier HTML -->
+
+    <!-- Autres scripts... -->   
+    <script src="./assets/js/email.min.js"></script>
+
+    
+
+      <!-- ==== #emailjs ==== -->
+      <title><?= $pageTitle ?? 'SebNono-Portfolio' ?></title>
 </head>
 
 <body class="bg-gray-100 text-gray-900">
@@ -21,16 +32,16 @@
             <a href="contact.php" class="hover:text-purple-600 transition duration-200 <?= $currentPage === 'contact' ? 'text-purple-600 font-semibold' : '' ?>">Contact</a>
         </nav>
 
-        <button class="md:hidden text-2xl text-gray-700" id="mobileMenuButton">
+        <button class="md:hidden text-2xl text-purple-700" id="mobileMenuButton">
             <i class="fas fa-bars"></i>
         </button>
     </header>
 
     <!-- Menu Mobile -->
-    <div class="md:hidden hidden bg-white shadow-lg absolute top-full left-0 right-0 z-40" id="mobileMenu">
+    <div class="md:hidden hidden bg-gray-200 shadow-lg sticky  top-16 left-0 w-full h-full min-h-full z-40" id="mobileMenu">
         <nav class="flex flex-col p-4 gap-4 text-lg">
-            <a href="index.php" class="hover:text-purple-600 py-2 px-4 <?= $currentPage === 'accueil' ? 'bg-purple-50 text-purple-600 rounded' : '' ?>">Accueil</a>
-            <a href="services.php" class="hover:text-purple-600 py-2 px-4 <?= $currentPage === 'services' ? 'bg-purple-50 text-purple-600 rounded' : '' ?>">Services</a>
-            <a href="contact.php" class="hover:text-purple-600 py-2 px-4 <?= $currentPage === 'contact' ? 'bg-purple-50 text-purple-600 rounded' : '' ?>">Contact</a>
+            <a href="index.php" class="hover:text-purple-600 hover:bg-orange-100 py-2 px-4 <?= $currentPage === 'accueil' ? 'bg-purple-50 text-purple-600 rounded' : '' ?>">Accueil</a>
+            <a href="services.php" class="hover:text-white-600 hover:bg-purple-400 py-2 px-4 <?= $currentPage === 'services' ? 'bg-purple-100 text-white-600 rounded' : '' ?>">Services</a>
+            <a href="contact.php" class="hover:text-purple-600 hover:bg-orange-100 py-2 px-4 <?= $currentPage === 'contact' ? 'bg-purple-50 text-purple-200  rounded' : '' ?>">Contact</a>
         </nav>
     </div>

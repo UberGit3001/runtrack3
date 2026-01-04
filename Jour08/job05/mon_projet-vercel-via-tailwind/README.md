@@ -4,18 +4,18 @@
 
 ---
 
-## 📋 Description
+## Description
 Petit projet portfolio qui utilise :
 - HTML/PHP pour les pages (includes `inc/header.php`, `inc/footer.php`)
 - Tailwind CSS (CDN au départ, compilation locale ensuite)
 - Un formulaire de contact front-end contrôlé et envoi via EmailJS (client-side)
 - Structure simple pour faciliter l'évolution (assets, styles, api, inc, config)
 
-> Ce README s'arrête à la configuration et test de l'envoi d'email via EmailJS (arrêt demandé : « arrête toi au envoi des mails »).
+> Ce README s'arrête à la configuration et test de l'envoi d'email via EmailJS (arrêt au envoi des mails).
 
 ---
 
-## 📂 Structure principale
+## Structure principale
 
 ```
 mon_projet-vercel-via-tailwind/
@@ -43,7 +43,7 @@ mon_projet-vercel-via-tailwind/
 
 ---
 
-## ⚙️ Prérequis
+## Prérequis
 - PHP (ex. installé via WAMP/XAMPP)
 - Node.js + npm
 - (Optionnel) Un compte EmailJS pour l'envoi d'emails côté client
@@ -74,7 +74,7 @@ npx tailwindcss -i ./styles/input.css -o ./styles/output.css --minify
 
 ---
 
-## 🔐 Configuration (secrets)
+## Configuration (secrets)
 
 - Crée `config/config.php` localement et **ne** le commits pas.
 - Utilise `config/config.php.example` dans le repo avec des valeurs factices.
@@ -93,7 +93,7 @@ return [
 
 ---
 
-## 📨 Intégration EmailJS (envoi d'email côté client)
+## Intégration EmailJS (envoi d'email côté client)
 
 1. Crée un compte sur https://www.emailjs.com/
 2. Dans le dashboard EmailJS :
@@ -151,17 +151,10 @@ emailjs.send(
 
 ---
 
-## ✅ Conseils de sécurité & bonnes pratiques
+## Conseils de sécurité & bonnes pratiques
 - **Ne commit jamais** de clés ou mots de passe (`config/config.php`, `.env`) — ajoute-les à `.gitignore`.
 - Stocke une **exemple** de config (`config/config.php.example`) dans le repo pour documenter la structure.
 - La clé publique EmailJS peut être utilisée côté client — **ne** publie jamais de clés privées.
 - Privilégie des messages d'erreur/retours utilisateur propres (success / error) après l'envoi.
 
 ---
-
-Si tu veux, je peux :
-- Ajouter `config/config.php.example` automatiquement
-- Mettre à jour `.gitignore` selon les règles proposées
-- Ajouter un petit script de test pour envoyer un email depuis `contact.php`
-
-Souhaites-tu que j'applique une de ces actions maintenant ? (je m'arrête après l'envoi d'emails, comme demandé)
